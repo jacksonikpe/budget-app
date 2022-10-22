@@ -6,7 +6,9 @@ const AppReducer = (state, action) => {
         case 'ADD_EXPENSE':
             return {...state, expenses:[...state.expenses, action.payload]}
         case 'DELETE_EXPENSE':
-            return {...state, expenses:[...action.payload]}
+            return {...state, expenses:state.expenses.filter((expense) => {
+                return expense.id !== action.payload
+              })}
         default:
             return state;
     }

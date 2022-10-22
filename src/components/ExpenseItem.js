@@ -3,14 +3,11 @@ import { TiDelete } from 'react-icons/ti'
 import { AppContext } from '../context/AppContext'
 
 const ExpenseItem = ({ expense }) => {
-  const { expenses, dispatch } = useContext(AppContext)
+  const { dispatch } = useContext(AppContext)
 
   const deleteExpense = () => {
-    const filteredExpense = expenses.filter((exp) => {
-      return expense.id !== exp.id
-    });
-
-    dispatch({type:"DELETE_EXPENSE", payload:[...filteredExpense]});
+    
+    dispatch({type:"DELETE_EXPENSE", payload:expense.id});
   }
   return (
     <li className="list-group-item d-flex justify-content-between align-items-center">
